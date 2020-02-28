@@ -1,3 +1,4 @@
+import com.qaprosoft.carina.core.foundation.AbstractTest;
 import nbrb.NbrbRatesPage;
 import nbrb.SingleCurrency;
 import org.openqa.selenium.WebDriver;
@@ -7,9 +8,9 @@ import org.testng.annotations.Test;
 import tutby.HomePage;
 import java.util.List;
 
-public class CurrencyTest {
+public class CurrencyTest extends AbstractTest {
     @Test(description = "Check that USD rate is valid")
-    public  void testUSDToBYNRate() {
+    public void testUSDToBYNRate() {
 
         System.setProperty("webdriver.chrome.driver", "d:/temp/chromedriver_win32/chromedriver.exe");
         WebDriver driver = new ChromeDriver();

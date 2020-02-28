@@ -1,3 +1,4 @@
+import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -5,11 +6,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import tutby.HomePage;
 
-public class FindElementTests {
+public class FindElementTests extends AbstractTest {
     @Test(description = "Check that weather displayed in menu")
-    public void testSearch() throws InterruptedException {
+    public void testWeWeatherDisplayed() {
 
-        System.setProperty("webdriver.chrome.driver", "d:/temp/chromedriver_win32/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "\"D:\\pkj\\chromedriver_win32\\chromedriver.exe\"");
         WebDriver driver = new ChromeDriver();
 
         HomePage tutbyHomePage = new HomePage(driver);

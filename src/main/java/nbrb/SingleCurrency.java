@@ -7,9 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class SingleCurrency extends AbstractUIObject {
-    public SingleCurrency(WebDriver driver, SearchContext searchContext) {
-        super(driver, searchContext);
-    }
 
     @FindBy(className = "curName")
     private ExtendedWebElement currencyName;
@@ -19,6 +16,10 @@ public class SingleCurrency extends AbstractUIObject {
 
     @FindBy(className = "curCours")
     private ExtendedWebElement currencyCours;
+
+    public SingleCurrency(WebDriver driver, SearchContext searchContext) {
+        super(driver, searchContext);
+    }
 
     public String getCurrencyName() {
         return currencyName.getText();

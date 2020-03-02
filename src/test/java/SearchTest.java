@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import tutby.HomePage;
 import tutby.SearchResultsPage;
 import tutby.components.SearchResult;
+import tutby.utils.SearchResultValidation;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class SearchTest extends AbstractTest {
         System.setProperty("webdriver.chrome.driver", "d:/temp/chromedriver_win32/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         final String searchText = "коронавирус";
+        final Double expectedSearchIndex = 0.5;
 
         HomePage tutbyHomePage = new HomePage(driver);
         tutbyHomePage.open();
@@ -26,15 +28,12 @@ public class SearchTest extends AbstractTest {
         SearchResultsPage searchResultsPage = new SearchResultsPage(tutbyHomePage);
         Assert.assertTrue(searchResultsPage.isPageOpened());
         List<SearchResult> searchResultList = searchResultsPage.getSearchResults();
-        Integer allResults = 0;
-        Integer matchingResults = 0;
-        for (SearchResult searchResult : searchResultList) {
-            if (searchResult.getTitle().contains(searchText)){
-                matchingResults ++;
-            }
-            allResults++;
-        }
 
-        Assert.assertTrue(matchingResults > allResults/2, "Search text not found in 50% of results");
+        SearchResultValidation searchResultValidation = new SearchResultValidation();
+        Integer resultIndex = searchResultValidation.checkResults(searchResultList, searchText);
+
+        Assert.assertTrue(resultIndex > expectedSearchIndex,
+                "Search text not found in " + expectedSearchIndex*100 +  " % of results");
     }
+
 }

@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "success": true,
+    "code": 200
+  },
+  "result": {
+    "first_name": "Ivan",
+    "last_name": "Petrov",
+    "gender": "male",
+    "dob": "1980-01-18",
+    "email": "Ivan.Petrov@example.com",
+    "phone": "375296598546",
+    "website": "http://www.ivanpetrovhomepage.com",
+    "address": "Minsk, Pobediteley 123-12",
+    "status": "inactive",
+    "_links": {
+      "self": {
+        "href": "https://gorest.co.in/public-api/users/1"
+      },
+      "edit": {
+        "href": "https://gorest.co.in/public-api/users/1"
+      },
+      "avatar": {
+        "href": "https://www.kindpng.com/imgv/miioTJ_avatar-people-person-business-user-man-character-avatar/"
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import tutby.components.MainMenu;
 import tutby.components.SearchPanel;
+import tutby.components.SelectCityMenu;
 
 public class HomePage extends AbstractPage {
 
@@ -13,6 +14,9 @@ public class HomePage extends AbstractPage {
 
     @FindBy(id = "search")
     private SearchPanel searchPanel;
+
+    @FindBy(className = "modal-content")
+    private SelectCityMenu selectCityMenu;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -25,6 +29,14 @@ public class HomePage extends AbstractPage {
 
     public SearchPanel getSearchPanel() {
         return searchPanel;
+    }
+
+    public SelectCityMenu getSelectCityMenu() {
+        return selectCityMenu;
+    }
+
+    public boolean isSelectCityMenuOpened() {
+        return selectCityMenu.isUIObjectPresent();
     }
 
 }
